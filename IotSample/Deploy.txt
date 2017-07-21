@@ -1,0 +1,33 @@
+param (
+    [string]$Username,
+	[string]$Password,
+	[string]$LocalDir,
+	[string]$RemoteDir,
+	[string]$IP
+	
+)
+Write-Host Copying $($LocalDir) to ($IP)
+
+$pwd = ConvertTo-SecureString $Password -AsPlainText -Force
+$mycreds = New-Object System.Management.Automation.PSCredential ($Username, $pwd)
+
+$session = New-WinSCPSession -GiveUpSecurityAndAcceptAnySshHostKey -Credential $mycreds -HostName $IP -Protocol Scp
+
+New-WinSCPItem -Path "dotnetcore" -ItemType directory -ErrorAction SilentlyContinue
+New-WinSCPItem -Path "dotnetcore/$($RemoteDir)" -ItemType directory -ErrorAction SilentlyContinue
+
+$transferOptions = New-WinSCPTransferOption -TransferMode Binary
+
+Sync-WinSCPPath -WinSCPSession $session -Mode Remote `
+	-LocalPath $LocalDir -RemotePath "dotnetcore/$($RemoteDir)" `
+	-TransferOptions $transferOptions 
+
+
+
+
+
+make sure to run "Install-Module Winscp" before using the script
+
+<Target Name="CopyToRaspPiTarget" AfterTargets="Publish">
+		<Exec Command="C:\windows\System32\WindowsPowerShell\v1.0\powershell.exe -NonInteractive -ExecutionPolicy Unrestricted .\copyToRaspberryPi.ps1 -Username $(RaspberryPiUser) -Password $(RaspberryPiPwd) -IP $(RaspberryPiIP) -RemoteDir $(AssemblyName) -LocalDir $(OutDir)"/>
+	</Target> 

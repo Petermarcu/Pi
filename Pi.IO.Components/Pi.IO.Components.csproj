@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <NoWarn>NU1701</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pi.IO.GeneralPurpose\Pi.IO.GeneralPurpose.csproj" />
+    <ProjectReference Include="..\Pi.IO.InterIntegratedCircuit\Pi.IO.InterIntegratedCircuit.csproj" />
+    <ProjectReference Include="..\Pi.IO.Interop\Pi.IO.Interop.csproj" />
+    <ProjectReference Include="..\Pi.IO.SerialPeripheralInterface\Pi.IO.SerialPeripheralInterface.csproj" />
+    <ProjectReference Include="..\Pi.IO\Pi.IO.csproj" />
+    <ProjectReference Include="..\Pi.System\Pi.System.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Common.Logging.Core" Version="3.3.1" />
+    <PackageReference Include="Common.Logging" Version="3.3.1" />
+    <PackageReference Include="UnitsNet" Version="3.66.0" />
+  </ItemGroup>
+  
+</Project>
