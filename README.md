@@ -14,3 +14,5 @@ These instructions are for .NET Core 2.0. In order to use it with Visual Studio,
 - `sudo ./IotSample`
 
 Note: Make sure you have enabled GPIO and SPI. You can do this by running `raspi-config` on the Pi.
+
+This project was created based on the [raspberry-sharp](https://github.com/raspberry-sharp) project. This was initially forked off to make it easier to consume it in more places than Mono as well as add Raspberry Pi 3 support.
