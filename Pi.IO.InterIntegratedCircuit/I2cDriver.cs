@@ -303,6 +303,7 @@ namespace Pi.IO.InterIntegratedCircuit
                     return Interop.BCM2835_BSC1_BASE;
 
                 case Processor.Bcm2709:
+                case Processor.Bcm2835:
                     return Interop.BCM2836_BSC1_BASE;
                 
                 default:
