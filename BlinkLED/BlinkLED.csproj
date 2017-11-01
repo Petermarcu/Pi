@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Pi.IO.Components" Version="0.0.2-preview1" />
+    <PackageReference Include="ILLink.Tasks" Version="0.1.4-preview-805595" />
+  </ItemGroup>
+
+</Project>
